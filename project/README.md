@@ -1,4 +1,4 @@
-# Tachometer
+# Tachometr
 
 ### vypracovali:
 
