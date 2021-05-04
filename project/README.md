@@ -3,10 +3,10 @@
 ### vypracovali:
 
 
-Klimeš Jiří (),
-Mostecký Jan (),
-Němec Petr (),
-Januška Tomáš ()
+Klimeš Jiří (212561),
+Mostecký Jan (221478),
+Němec Petr (221480),
+Januška Tomáš
 
 [Github project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
 
