@@ -83,7 +83,9 @@ Lepší provedení by bylo za použití šesti 7segment displayů pro zobrazení
 
 ### Schéma top modulu
 
+shéma top modulu s vyznačenými signály a dílčími moduly
 
+![topmodul](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/FInal%20scheme%20final.jpg)
 
 
 -----------------------------------
