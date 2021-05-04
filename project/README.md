@@ -554,8 +554,90 @@ end Behavioral;
 
 ```
 
+### řazení modulů na display pomocí multiplexoru
+
+Tento modun nebyl v konečné realizaci použit. Pro funkčnost tohoto modulu by bylo zapotřebí pro zobrazení druhého modulu tlačítko držet, případně realizovat přepínání za pomocí switche. 
+
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
 
 
+entity fsm is
+    port(
+        button_1        : in std_logic;
+        vel_i           : in std_logic_vector (8 - 1 downto 0);
+        dis_i           : in std_logic_vector (14 - 1 downto 0);
+        to_display      : out std_logic_vector (14 - 1 downto 0)
+        
+    );
+end entity fsm;
+
+
+architecture Behavioral of fsm is
+begin
+
+ p_mux : process (vel_i, dis_i, button_1)
+    begin
+        case button_1 is
+            when '0' =>
+                to_display <= vel_i;
+                
+            when '1' =>
+                to_display <= dis_i;
+                
+            when others =>
+                to_display <= vel_i;                            
+                            
+        end case;
+    end process p_mux;
+end architecture Behavioral;
+```
+
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity tb_fsm is
+    
+end entity tb_fsm;
+
+
+architecture testbench of tb_fsm is
+
+  
+
+        signal s_button_1        :  std_logic;
+        signal s_vel             :  std_logic_vector (8 - 1 downto 0);
+        signal s_dis_i           :  std_logic_vector (14 - 1 downto 0);
+        signal s_to_display      :  std_logic_vector (14 - 1 downto 0);
+        
+
+begin
+    
+    uut_fsm : entity work.fsm
+        port map(
+            button_1        => s_button_1,
+            vel_i           => s_vel,
+            dis_i           => s_dis_i,
+            to_display      => s_to_display
+        );
+
+    
+    p_stimulus : process
+    begin
+       
+        report "Stimulus process started" severity note;
+
+        s_button_1 <= '0'; wait for 100 ns;
+        s_button_1 <= '1'; wait for 100 ns;
+        
+        wait;
+   end process p_stimulus;
+       
+end architecture testbench;
+```
 
 -----------------------------------
 ## TOP module description and simulations
