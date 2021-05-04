@@ -6,7 +6,9 @@
 Klimeš Jiří (212561),
 Mostecký Jan (221478),
 Němec Petr (221480),
-Januška Tomáš
+
+
+Januška Tomáš (na vytváření projektu nespolupracoval)
 
 [Github project folder]( https://github.com/JanMostecky/Digital-electronics-1/tree/main/project)
 
