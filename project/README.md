@@ -50,13 +50,6 @@ Základní vstupy a výstupy
 ![BoardDescription](https://github.com/JanMostecky/Digital-electronics-1/blob/main/project/pictures/Basic_IO.PNG)
 
 
-The 7 segment display:
-The idea was to have 4 digit 7 segment display, to measure distance from 0 to 9999 metres.
-That would also allow us to measure time from start (00:00) to maximum possible for 4 digit 7 seg. display (99:99), meaning 99 minutes and 99 seconds.
-After that, the timer would reset and start over.
-A better implementation would be with 6 digit 7 seg. display, that would allow us to measure (count) hours as well, extending the functionality of time measuring greatly.
-
-
 Available for example here:
 https://www.aliexpress.com/i/32367486295.html
 
@@ -67,15 +60,22 @@ And while measuring distance and velocity, colon wouldn't be displayed.
 -----------------------------------
 ## Teoretický návrh tachometru
 
-Pro zjednodušení implementace - vzhledem k našim začátečnických schopnostem ve VHDL - bylo rozhodnuto o ovládání tachometru jedním přepínačem a dvěma tlačítky. 
+Poznámka: Nikdo z našeho týmu dřív s jazykem VHDL nepracoval, máme minimální zkušenosti s programováním a nikdo z nás se mu aktivně nevěnuje ani v jiném jazyce. S programovatelnou deskou sme se nikdy nesetkali osobně.
+
+Pro implementaci - vzhledem k našim začátečnických schopnostem ve VHDL - bylo rozhodnuto o ovládání tachometru jedním přepínačem a dvěma tlačítky. 
 
 - Přepínač: zapínání a vypínání celého zařízení.
 
 - Tlačítko A:
-Přepínání zobrazených modulů na display. Pro tuto funkci byly navrženy dva různé moduly. První verze bylo použití stavového automatu, druhá verze za použití multiplexoru. 
+Přepínání zobrazených modulů na display.  
 
 - Tlačítko B:
 Resetování celého zařízení, vynulování přičítání ujeté vzdálenosti. 
+
+Zobrazení na display: 
+Pro tuto funkci byly navrženy dva různé moduly. První verze bylo použití stavového automatu, druhá verze přepínala moduly na display za použití multiplexoru. Finální verze projektu pracuje s použitím stavového automatu. 
+Pro zobrazení od 0 do 9999 ujetých kilometrů byly navrženy čtyři 7segment displaye. Toto zapojení by teké umožnilo měřit čas od 0 do 99:60. Poté se čas resetuje. 
+Lepší provedení by bylo za použití šesti 7segment displayů pro zobrazení hodin a více ujetých kilomtrů. 
 
 ### Schéma top modulu
 
