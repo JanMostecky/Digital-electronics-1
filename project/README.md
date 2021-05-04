@@ -17,7 +17,11 @@ Januška Tomáš ()
 
 Cílem projektu bylo navrhnout a realizovat pomocí jazyku VHDL cyklo-tachometr. Následně výsledek projektu zpracovat do README.md souboru a videoprezentace. 
 
-Funkce tachometru: měření rychlosti, Měření ujeté vzdálenosti.
+Funkce tachometru: měření rychlosti, měření ujeté vzdálenosti, měření průměrné rychlosti, měření doby jízdy. 
+Přepínání zobrazené rychlosti mezi m/s a km/h
+Přepínání jednotek mezi metrickou a imperiální soustavou. 
+
+Dodatečná funkce nesouvisející s funkcí tachometru: Hodiny zobrazující čas a datum, sledování teopu uživatele, měření spalování kalorií/joulů. 
 
 
 -----------------------------------
@@ -60,7 +64,7 @@ And while measuring distance and velocity, colon wouldn't be displayed.
 -----------------------------------
 ## Teoretický návrh tachometru
 
-Poznámka: Nikdo z našeho týmu dřív s jazykem VHDL nepracoval, máme minimální zkušenosti s programováním a nikdo z nás se mu aktivně nevěnuje ani v jiném jazyce. S programovatelnou deskou sme se nikdy nesetkali osobně.
+Poznámka: Nikdo z našeho týmu dřív s jazykem VHDL nepracoval, máme minimální zkušenosti s programováním a nikdo z nás se mu aktivně nevěnuje ani v jiném jazyce. S programovatelnou deskou jsme se nikdy nesetkali osobně.
 
 Pro implementaci - vzhledem k našim začátečnických schopnostem ve VHDL - bylo rozhodnuto o ovládání tachometru jedním přepínačem a dvěma tlačítky. 
 
@@ -74,7 +78,7 @@ Resetování celého zařízení, vynulování přičítání ujeté vzdálenost
 
 Zobrazení na display: 
 Pro tuto funkci byly navrženy dva různé moduly. První verze bylo použití stavového automatu, druhá verze přepínala moduly na display za použití multiplexoru. Finální verze projektu pracuje s použitím stavového automatu. 
-Pro zobrazení od 0 do 9999 ujetých kilometrů byly navrženy čtyři 7segment displaye. Toto zapojení by teké umožnilo měřit čas od 0 do 99:60. Poté se čas resetuje. 
+Pro zobrazení od 0 do 9999 ujetých metrů byly navrženy čtyři 7segment displaye. Toto zapojení by teké umožnilo měřit čas od 0 do 99:59. Poté se čas resetuje. 
 Lepší provedení by bylo za použití šesti 7segment displayů pro zobrazení hodin a více ujetých kilomtrů. 
 
 ### Schéma top modulu
@@ -85,7 +89,7 @@ Lepší provedení by bylo za použití šesti 7segment displayů pro zobrazení
 -----------------------------------
 ## VHDL moduly a jejich popis
 
-V každé podkapitole jdou za sebou design kód a testbench kód. 
+V každé podkapitole jsou za sebou řazeny design kód a testbench kód. 
 
 ### On_off modul
 
@@ -171,7 +175,7 @@ end Behavioral;
 
 ### Clock enable
 
-Modul generující clock signál pro sinchronizaci výpořtu rychlosti
+Modul generující clock signál pro synchronizaci výpočtu rychlosti.
 
 ```vhdl
 library ieee;               -- Standard library
@@ -183,7 +187,7 @@ use ieee.numeric_std.all;   -- Package for arithmetic operations
 ------------------------------------------------------------------------
 entity clock_enable is
     generic(
-        g_MAX : natural := 10       -- Number of clk pulses to generate
+        g_MAX : natural := 100       -- Number of clk pulses to generate
                                     -- one enable signal period
     );  -- Note that there IS a semicolon between generic and port
         -- sections
@@ -316,7 +320,7 @@ end architecture testbench;
 
 ### Sensor modul
 
-Sensor modul slouží k zaznamenávání a následnému předávání signálu z halovy sondy dál do systému k výpočtu rychlosti a ujeté vzdálenosti. 
+Sensor modul slouží k zaznamenávání a následnému předávání signálu z hallovy sondy dál do systému k výpočtu rychlosti a ujeté vzdálenosti. 
 
 ```vhdl
 library IEEE;
