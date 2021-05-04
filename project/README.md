@@ -699,6 +699,166 @@ end Behavioral;
 
 ```
 
+### Řazení modulů na display pomocí stavového automatu 
+
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity fsm is
+    port(
+        reset      : in     std_logic;
+        btn_1      : inout  std_logic;
+        en_i       : in     std_logic;
+        
+        vel_i      : in     std_logic_vector;
+        dis_i      : in     std_logic_vector;
+        
+        to_display : out    std_logic_vector;
+        VEL_o      : out    std_logic;
+        DIST_o     : out    std_logic
+    );
+end entity fsm;
+
+------------------------------------------------------------------------
+
+architecture Behavioral of fsm is
+
+    -- Define the states
+    type t_state is (                     
+                     DISTANCE,
+                     VELOCITY
+                     );
+    -- Define the signal that uses different states
+    signal s_state  : t_state;
+
+begin
+
+    --------------------------------------------------------------------
+    p_fsm : process(btn_1)
+    begin
+            if (reset = '1') then          
+                s_state <= VELOCITY ;      -- Set initial state
+
+            elsif (en_i = '1') then
+
+                case s_state is
+
+                    when VELOCITY =>
+                        if (rising_edge(btn_1)) then
+                            s_state <= DISTANCE;
+                            btn_1 <= '0';
+                        else
+                            s_state <= VELOCITY;
+                        end if;
+                        
+                    when DISTANCE =>
+                        if (rising_edge(btn_1)) then
+                            s_state <= VELOCITY;
+                            btn_1 <= '0';
+                        else
+                            s_state <= DISTANCE;
+                        end if;
+                        
+                    when others =>
+                        s_state <= VELOCITY;
+
+                end case;
+            end if;
+    end process p_fsm;
+
+    --------------------------------------------------------------------
+
+    --------------------------------------------------------------------
+    p_output : process(s_state)
+    begin
+        case s_state is
+            when VELOCITY =>
+                VEL_o    <= '1';
+                DIST_o   <= '0';
+                to_display <= vel_i;
+            
+            when DISTANCE =>
+                VEL_o    <= '0';
+                DIST_o   <= '1';
+                to_display <= dis_i;
+                
+            when others =>
+                VEL_o    <= '1';
+                DIST_o   <= '0';
+                to_display <= vel_i;
+                
+        end case;
+    end process p_output;
+
+end architecture Behavioral;
+```
+
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity tb_fsm is
+end entity tb_fsm;
+
+architecture testbench of tb_fsm is
+
+
+    --Local signals
+    signal s_btn        : std_logic;
+    signal s_reset      : std_logic;
+    signal s_en         : std_logic;
+    signal s_veli       : std_logic_vector;
+    signal s_disi       : std_logic_vector;
+    signal s_display    : std_logic_vector;
+    signal s_velo       : std_logic;
+    signal s_diso       : std_logic;
+
+begin
+    -- Connecting testbench signals with tlc entity (Unit Under Test)
+    uut_tlc : entity work.fsm
+        port map(
+            reset       => s_reset,
+            btn_1       => s_btn,
+            en_i        => s_en,
+                      
+            vel_i       => s_veli,
+            dis_i       => s_disi,
+                      
+            to_display  => s_display,
+            VEL_o       => s_velo,
+            DIST_o      => s_diso
+        );
+
+
+    --------------------------------------------------------------------
+    -- Reset generation process
+    --------------------------------------------------------------------
+    p_reset_gen : process
+    begin
+        s_reset <= '0'; wait for 200 ns;
+        -- Reset activated
+        s_reset <= '1'; wait for 500 ns;
+        -- Reset deactivated
+        s_reset <= '0';
+        wait;
+    end process p_reset_gen;
+
+    --------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        s_en <= '1';
+        wait;
+    end process p_stimulus;
+
+end architecture testbench;
+```
+
 ### řazení modulů na display pomocí multiplexoru
 
 Tento modun nebyl v konečné realizaci použit. Pro funkčnost tohoto modulu by bylo zapotřebí pro zobrazení druhého modulu tlačítko držet, případně realizovat přepínání za pomocí switche. 
@@ -787,7 +947,157 @@ end architecture testbench;
 -----------------------------------
 ## TOP module description and simulations
 
-Write your text here.
+Top modul sloužící k propojení dílčích modulů
+
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity top is
+    Port 
+    (
+     CLK100MHZ : in STD_LOGIC;  --
+     BTNA      : in STD_LOGIC;  --button for changing modes
+     BTNB      : in STD_LOGIC;  --button for reset
+     SW        : in STD_LOGIC;  --on off switch
+     SENS      : in STD_LOGIC;  --hall sensor
+     
+     LED       : out STD_LOGIC_VECTOR (2 - 1 downto 0);  --LED indificators
+     CA        : out STD_LOGIC;
+     CB        : out STD_LOGIC;
+     CC        : out STD_LOGIC;
+     CD        : out STD_LOGIC;
+     CE        : out STD_LOGIC;
+     CF        : out STD_LOGIC;
+     CG        : out STD_LOGIC;
+     DP        : out STD_LOGIC;
+     AN        : out STD_LOGIC_VECTOR (8 - 1 downto 0)
+     );
+end top;
+------------------------------------------------------------------------
+-- Architecture body for top level
+------------------------------------------------------------------------
+architecture behavioral of top is
+
+    constant c_MAX           : natural := 10;
+    constant c_CNT_WIDTH     : natural := 16;
+    constant c_VEL_WIDTH     : natural := 16;
+    constant c_DIS_WIDTH     : natural := 16;
+    constant c_CIRCUMFERENCE : natural := 2;--m            --standart 26' wheel circrumference  
+    constant c_clk_frequency : natural := 50000000;--Hz     --Frequency of signal from main clock
+    
+    signal s_on_off        : std_logic;
+    signal s_reset         : std_logic;
+    signal s_clk           : std_logic;
+    signal s_sensor        : std_logic_vector(14 - 1 downto 0);
+    signal s_period_count  : std_logic_vector(c_CNT_WIDTH - 1 downto 0);
+    signal s_velocity      : std_logic_vector(c_VEL_WIDTH - 1 downto 0);
+    signal s_distance      : std_logic_vector(c_DIS_WIDTH - 1 downto 0);
+       
+begin
+    --------------------------------------------------------------------
+    -- Instance of sensor module
+    --------------------------------------------------------------------
+    sensor : entity work.sensor
+        Port map(
+        input    => SENS,
+        en_i     => s_on_off,
+        reset    => BTNB,
+        
+        revs_o   => s_sensor
+         );
+        
+
+    --------------------------------------------------------------------
+    -- Instance of on_off module
+    --------------------------------------------------------------------
+    on_off : entity work.on_off
+        Port map(
+            start_i => SW,          -- Input from Switch (0) to turn on/off the tachometer
+            start_o => s_on_off     -- Output that starts other modules
+         );         
+       
+    --------------------------------------------------------------------
+    -- Instance of clock_enable module
+    --------------------------------------------------------------------
+    clock_enable : entity work.clock_enable
+        generic map(
+            g_MAX => c_MAX      
+        );  
+        port map(
+            clk   =>  CLK100MHZ,    -- Main clock
+            reset =>  BTNB,         -- Synchronous reset
+            ce_o  =>  s_clk         -- Clock enable pulse signal
+        );
+    --------------------------------------------------------------------
+    -- Instance of cnt_up_down module
+    --------------------------------------------------------------------
+    cnt_up_down : entity work.cnt_up_down
+        generic map(
+            g_CNT_WIDTH => c_CNT_WIDTH      -- Number of bits for counter
+        );
+        port map(
+            clk       =>  s_clk,     -- Main clock
+            reset     =>  s_sensor,  -- Synchronous reset
+            en_i      =>  s_on_off,  -- Enable input
+            cnt_up_i  =>  '1',       -- Direction of the counter
+            cnt_o     =>  s_period_count   
+        );
+        --------------------------------------------------------------------
+        -- Instance of velocity module
+        --------------------------------------------------------------------
+        velocity : entity work.velocity
+          generic map(
+                  g_CNT_WIDTH     => c_CNT_WIDTH,     -- Number of bits for counter
+                  g_circumference => c_CIRCUMFERENCE, --standart 26' wheel circrumference
+                  g_clk_frequency => c_clk_frequency --Frequency of signal from main clock
+                  );
+          port map(
+                    clk           => s_clk,           -- Main clock
+                    reset         => s_sensor,        -- Synchronous reset signal from hall sensor
+                    en_i          => s_on_off,        -- enable signal from on_off module
+                    period_count  => s_period_count,  -- input from counter measuring period of rotation
+                    velocity_o    => s_velocity       -- output for hex_deg       
+                  );  
+                  
+    --------------------------------------------------------------------
+    -- Instance of distance module
+    --------------------------------------------------------------------
+    distance : entity work.distance
+        generic map(
+               perimeter => c_CIRCUMFERENCE    
+                );
+                
+        Port map(
+               reset     => s_reset,
+               en_i      => s_on_off,
+               revs_i    => s_sensor,
+               dist      => s_distance
+              );
+        
+    --------------------------------------------------------------------
+    -- Instance of fsm module
+    --------------------------------------------------------------------
+    fsm : entity work.fsm
+        Port map(
+                    clk        => s_clk,
+                    reset      => s_on_off,
+                    VEL_O      => s_velocity,
+                    DIST_O     => s_distance
+                );
+--    --------------------------------------------------------------------
+--    -- Instance of display_driver module
+--    --------------------------------------------------------------------
+--    display_driver : entity work.display_driver
+--        Port map(
+                
+--                );
+                               
+                
+
+end architecture behavioral;
+```
 
 
 
