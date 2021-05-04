@@ -1117,8 +1117,10 @@ end architecture behavioral;
 -----------------------------------
 ## Diskuze
 
-V průbehu práce na projektu byl vytvořen jednoduchý tachometr na jízdní kolo. tachometr obsahuje funkce měření rychlosti a ujeté vzdálenosti. 
+V průbehu práce na projektu byl vytvořen jednoduchý tachometr na jízdní kolo. Tachometr obsahuje funkce měření rychlosti a ujeté vzdálenosti. 
 
 Přístroj se ovládá jedním přepínačem a dvěma tlačítky. 
 
 Kvůli nedostatečným schopnostem autorů bylo upuštěno od některých původně zamýšlených funkcí zařízení. 
+
+Deska Artix A7-35T neobsahuje displaye. Z časových důvodů nebylo připojení externích displayů dokončeno. 
