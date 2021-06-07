@@ -135,6 +135,24 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ------------------------
 
+## Top
+
+Entita top byla udělána dvoustupňově. Prvně jsme propojili jednotlivé moduly v entitě bike_sensor a následně jsme celou entitu namapovali na desku pomocí entity top. 
+
+### Bike sensor
+
+[Odkaz na kód]()
+
+![simulace bike sensor](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_bike_sensor.PNG)
+
+[Odkaz na kód testbench]()
+
+
+
+### Top
+
+-----------------------
+
 ## Constrait file
 
 
