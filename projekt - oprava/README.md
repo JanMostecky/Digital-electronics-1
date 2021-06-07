@@ -48,3 +48,51 @@ Resetování celého zařízení, vynulování přičítání ujeté vzdálenost
 Zobrazení na display: 
 Přepínání zobrazených veličin na display zařizuje stavový automat ovládaný přepínačem. Jednotlivé číslice pak  4 to 1 multiplexor - ovládaný čítečem - posílá na jednotlivé displaye. Rychlost přepínaných číslic je větší než rozlišovací schopnost lidského oka a proto se číslice jeví zobrazeny naráz. (Postup pro zobrazení dat ze cvičení). 
 
+### Schéma top modulu
+
+shéma top modulu s vyznačenými signály a dílčími moduly
+
+![topmodul]()
+
+------------------------
+
+## Design moduly a jejich popis
+
+### Velocity
+
+
+### Distance
+
+### Clock enable
+
+### Count up down
+
+### FSM
+
+### mux_4_to_1
+
+### hex_to_7seg
+
+
+## Testbench moduly a simulace
+
+### Velocity
+
+### Distance
+
+### Count up down
+
+### FSM
+
+### mux_4_to_1
+
+### hex_to_7seg
+
+## Top modul
+
+### Design
+
+### Testbench
+
+
+
