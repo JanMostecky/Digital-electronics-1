@@ -163,6 +163,12 @@ Entita top byla udělána dvoustupňově. Prvně jsme propojili jednotlivé modu
 
 -----------------------
 
+## Diskuze
+
+Podařilo se nám opravit jednoduchý tachometr na jízdní kolo. Konzole obsahuje dva moduly pro určení momentální rychlosti a ujeté vzdálenosti. Zařízení se ovládá dvěma přepínači. Prvním z nich přepínáme mezi zobrazením měřících módů na display a druhým resetujeme celé zařízení, kde dojde k vynulování ujeté vzdálenosti. 
+Zobrazení veličin zajišťuje externí čtyřpanelový sedmisegmentový display ovládaný pomocí fsm, multiplexoru a čítače. 
+
+V konečné fázy projektu se nám nepodařilo vygenerovat bitstream. Syntéza i Implementace proběhly v pořádku (víc, viz složka s projektem). Nepřišli jsme na chybu, která zabránila vyenerování bitstreamu. 
 
 
 
