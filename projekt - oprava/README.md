@@ -92,30 +92,44 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ### Velocity
 
+![Simulace velocity]()
+
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_distance.md)
 
 
 ### Distance
 
+![simulace distance]()
+
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_distance.md)
 
 ### Clock enable
+
+![simulace clock enable]()
 
 [Odkaz na kód]()
 
 ### Count up down
 
+![simulace čítač]()
+
 [Odkaz na kód]()
 
 ### FSM
+
+![simulace fsm]()
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_fsm.md)
 
 ### mux_4_to_1
 
+![simulace multiplexor]()
+
 [Odkaz na kód]()
 
 ### hex_to_7seg
+
+![simulace hex_to_7seg]()
 
 [Odkaz na kód]()
 
