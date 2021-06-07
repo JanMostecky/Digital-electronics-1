@@ -94,7 +94,7 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ![Simulace velocity]()
 
-[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_distance.md)
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/velocity_tb.md)
 
 
 ### Distance
