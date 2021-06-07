@@ -5,7 +5,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-
+------------------------------------------------------------------------
+-- Entity declaration for display driver
+------------------------------------------------------------------------
 entity mux is
     port(
         cnt_i   : in  std_logic_vector(2 - 1 downto 0);
@@ -23,7 +25,9 @@ entity mux is
     );
 end entity mux;
 
-
+------------------------------------------------------------------------
+-- Architecture declaration for display driver
+------------------------------------------------------------------------
 architecture Behavioral of mux is
 begin
     p_mux : process(cnt_i, data0_i, data1_i, data2_i, data3_i)
