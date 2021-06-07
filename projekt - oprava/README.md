@@ -141,11 +141,11 @@ Entita top byla udělána dvoustupňově. Prvně jsme propojili jednotlivé modu
 
 ### Bike sensor
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/bike_sensor.md)
 
 ![simulace bike sensor](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_bike_sensor.PNG)
 
-[Odkaz na kód testbench]()
+[Odkaz na kód testbench](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_bike_sensor.md)
 
 
 
