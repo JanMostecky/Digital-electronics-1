@@ -83,7 +83,7 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/mux.md)
 
-### hex_to_7seg
+### hex_7seg
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/hex_to_7seg.md)
 
@@ -125,13 +125,13 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ![simulace multiplexor]()
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_mux.md)
 
-### hex_to_7seg
+### hex_7seg
 
-![simulace hex_to_7seg]()
+![simulace hex_7seg]()
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_hex_7seg.md)
 
 ------------------------
 
