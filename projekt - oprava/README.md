@@ -92,12 +92,12 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ### Velocity
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_distance.md)
 
 
 ### Distance
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_distance.md)
 
 ### Clock enable
 
@@ -109,7 +109,7 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ### FSM
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_fsm.md)
 
 ### mux_4_to_1
 
