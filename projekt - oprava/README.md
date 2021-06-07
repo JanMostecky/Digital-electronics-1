@@ -107,13 +107,13 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ![simulace clock enable]()
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_clock%20enable.md)
 
 ### Count up down
 
 ![simulace čítač]()
 
-[Odkaz na kód]()
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_%C4%8D%C3%ADta%C4%8D.md)
 
 ### FSM
 
