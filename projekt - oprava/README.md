@@ -111,12 +111,16 @@ Multiplexor napojený na čítač posíla hodnoty jednotlivých digitů na řadi
 
 ### Velocity
 
+Po otočení kola dojde k přičtení vzdálenosti. Na výstupu jsou posílány hodnoty momentální rychlosti. 
+
 ![Simulace velocity](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_velocity.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/velocity_tb.md)
 
 
 ### Distance
+
+Simulace prokázala, že při otočení kola se k výsledné proměnné rozdělené na čtyři digity přičte hodnota 2, nastavená jako konstantní obvod kola. 
 
 ![simulace distance](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_distance.PNG)
 
@@ -135,6 +139,8 @@ Multiplexor napojený na čítač posíla hodnoty jednotlivých digitů na řadi
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_%C4%8D%C3%ADta%C4%8D.md)
 
 ### FSM
+
+Simulace stavového automatu ukazuje, že po přepnutí switche dojde ke změně výstupních hodnot. Při stavu 0 jsou na výstupu hodnoty z modulu distance a při stavu 1 hodnoty z modulu velocity.
 
 ![simulace fsm](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_FSM.PNG)
 
