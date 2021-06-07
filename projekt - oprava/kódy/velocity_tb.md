@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity tb_velocity is
---  Port ( );
+
 end tb_velocity;
 
 architecture Behavioral of tb_velocity is
