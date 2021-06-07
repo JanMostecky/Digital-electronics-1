@@ -1,4 +1,4 @@
-### Clock_enable design source
+### Kód pro Clock_enable 
 
 ```vhdl
 library ieee;               -- Standard library
