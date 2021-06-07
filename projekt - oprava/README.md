@@ -52,7 +52,7 @@ Přepínání zobrazených veličin na display zařizuje stavový automat ovlád
 
 shéma top modulu s vyznačenými signály a dílčími moduly
 
-![topmodul]()
+![topmodul](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/scheme_2.jpg)
 
 ------------------------
 
