@@ -33,3 +33,18 @@ https://reference.digilentinc.com/reference/programmable-logic/arty-a7/reference
 Schéma:
 https://reference.digilentinc.com/_media/reference/programmable-logic/arty-a7/arty_a7_sch.pdf
 
+-----------------------------
+
+## Teoretický návrh tachometru
+
+Tachometr je ovládán jedním přepínačem a jedním tlačítkem
+
+- Přepínač: 
+Přepínání mezi zobrazovanými veličinami. P/okud je přepínač v "nule" zobrazí se ujetá vzdálenost. Když je přepnut do "jedničky" na display se zobrazí momentální rychlost. 
+
+- Tlačítko:
+Resetování celého zařízení, vynulování přičítání ujeté vzdálenosti. 
+
+Zobrazení na display: 
+Přepínání zobrazených veličin na display zařizuje stavový automat ovládaný přepínačem. Jednotlivé číslice pak  4 to 1 multiplexor - ovládaný čítečem - posílá na jednotlivé displaye. Rychlost přepínaných číslic je větší než rozlišovací schopnost lidského oka a proto se číslice jeví zobrazeny naráz. (Postup pro zobrazení dat ze cvičení). 
+
