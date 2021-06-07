@@ -51,7 +51,7 @@ begin
            seg_o(1)    => CF,
            seg_o(0)    => CG,   
            dig_o       => AN,
-           dcp_o       => DP                                                                                                       
+           dp_o        => DP                                                                                                       
         );  
 
 
