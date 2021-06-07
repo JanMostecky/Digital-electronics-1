@@ -19,8 +19,10 @@ entity bike_sensor is
         reset   : in  std_logic;        -- Synchronous reset
         BTN     : in  std_logic;
         sensor_i: in  std_logic;
+        dp_o    : out std_logic;
         seg_o   : out std_logic_vector(7 - 1 downto 0);    -- Cathode values for individual segments
         dig_o   : out std_logic_vector(4 - 1 downto 0)
+        
     );
 end entity bike_sensor;
 
@@ -91,7 +93,8 @@ architecture behavioral of bike_sensor is
             data2_i => s_data2,
             data3_i => s_data3,
             seg_o   => s_hex,
-            dig_o   => dig_o
+            dig_o   => dig_o,
+            dp_o    => dp_o
         );
         
     fsm : entity work.fsm
