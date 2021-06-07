@@ -151,10 +151,13 @@ Entita top byla udělána dvoustupňově. Prvně jsme propojili jednotlivé modu
 
 ### Top
 
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/top.md)
+
 -----------------------
 
 ## Constrait file
 
+[Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/constraint.md)
 
 ## Bit Stream
 
