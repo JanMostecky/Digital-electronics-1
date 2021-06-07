@@ -92,44 +92,44 @@ shéma top modulu s vyznačenými signály a dílčími moduly
 
 ### Velocity
 
-![Simulace velocity]()
+![Simulace velocity](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_velocity.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/velocity_tb.md)
 
 
 ### Distance
 
-![simulace distance]()
+![simulace distance](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_distance.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_distance.md)
 
 ### Clock enable
 
-![simulace clock enable]()
+![simulace clock enable](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_clock_enable.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_clock%20enable.md)
 
 ### Count up down
 
-![simulace čítač]()
+![simulace čítač](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_cnt_up_down.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_%C4%8D%C3%ADta%C4%8D.md)
 
 ### FSM
 
-![simulace fsm]()
+![simulace fsm](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_FSM.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_fsm.md)
 
 ### mux_4_to_1
 
-![simulace multiplexor]()
+![simulace multiplexor](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_mux_4to1.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_mux.md)
 
 ### hex_7seg
 
-![simulace hex_7seg]()
+![simulace hex_7seg](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/pictures/screen_hex_7seg.PNG)
 
 [Odkaz na kód](https://github.com/JanMostecky/Digital-electronics-1/blob/main/projekt%20-%20oprava/k%C3%B3dy/tb_hex_7seg.md)
 
